@@ -118,26 +118,26 @@
  
   <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Obter as plantas cadastradas do localStorage
+   
     var plantasCadastradas = JSON.parse(localStorage.getItem("plantas")) || [];
 
-    // Selecionar o elemento da lista
+ 
     var listaPlantas = document.getElementById("listaPlantas");
 
-    // Iterar sobre as plantas e criar elementos HTML para exibição
+   
     plantasCadastradas.forEach(function(planta, index) {
-        // Criar elemento de contêiner para cada planta
+        
         var plantaContainer = document.createElement("div");
         plantaContainer.classList.add("planta-container");
 
-        // Adicionar imagem
+        
         var fotoElement = document.createElement("img");
         fotoElement.src = planta.foto;
         fotoElement.alt = "Foto da Planta";
         fotoElement.classList.add("planta-foto");
         plantaContainer.appendChild(fotoElement);
 
-        // Adicionar nome, tipo e cor
+        
         var infoElement = document.createElement("div");
         infoElement.classList.add("planta-info");
 
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         plantaContainer.appendChild(infoElement);
 
-        // Adicionar detalhes em um box
+        
         var detalhesElement = document.createElement("div");
         detalhesElement.classList.add("planta-detalhes");
 
@@ -161,25 +161,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
         detalhesElement.appendChild(detalhesBox);
 
-        // Adicionar lixeira para apagar
+        
         var lixeiraElement = document.createElement("div");
         lixeiraElement.classList.add("lixeira");
-        lixeiraElement.innerHTML = "&#128465;"; // Código unicode para um ícone de lixeira
+        lixeiraElement.innerHTML = "&#128465;"; 
         lixeiraElement.addEventListener("click", function() {
-            // Remover a planta da lista
+            
             plantasCadastradas.splice(index, 1);
 
-            // Atualizar o localStorage
+           
             localStorage.setItem("plantas", JSON.stringify(plantasCadastradas));
 
-            // Atualizar a exibição
+            
             exibirListaPlantas();
         });
 
         plantaContainer.appendChild(detalhesElement);
         plantaContainer.appendChild(lixeiraElement);
 
-        // Adicionar o contêiner da planta à lista
+        
         listaPlantas.appendChild(plantaContainer);
     });
 });

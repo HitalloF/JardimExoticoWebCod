@@ -1,0 +1,42 @@
+.lista-plantas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.planta-container {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.planta-foto {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.planta-info p {
+    margin: 5px 0;
+}
+
+.planta-detalhes {
+    margin-top: 10px;
+}
+
+.detalhes-box {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.lixeira {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ff0000;
+}
+
+.lixeira:hover {
+    color: #cc0000;
+}

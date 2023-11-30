@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/JardimExoticoHome.css" />
-  <link rel="stylesheet" href="css/cadastrostyle.css" />
+  <link rel="stylesheet" href="css/perfil.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -39,9 +39,8 @@
       </div>
     </header>
     <div class="group">
-    <a  id='user' href="./perfil.html"><img class="perfil" src="img/perfil.png" alt="alt text" /></a> <a class="login" href="/loginecadastro.html" id="linkLogin">LOGIN<br/>CADASTRAR</a>
-    <div class="rect1"></div>
-    <img class="bolsa" src="img/shop.png"
+    <a  id='user' href="./perfil.html"><img class="image1" src="img/perfil.png" alt="alt text" /></a><a href="/loginecadastro.html" id="linkLogin">Login</a>
+    <img class="icon2" src="img/shop.png"
       alt="alt text" />
   </div>
 
@@ -72,37 +71,15 @@
     <a href="#">ALPÍNIAS</a>
     <a href="#">ANTÚRIOS</a>
     <a href="#">ASTROMÉLIAS</a>
-    <a  id='user' href="/perfil.html">PERFIL</a>
-    <a  id="linkLogin" href="/loginecadastro.html">LOGIN</a>
-    <a href="#">BOLSA</a>
-     </div>
+    <a href="#">PERFIL</a>
+    <a href="loginecadastro.html  ">BOLSA</a>
   </div>
 
-
-  <h2>Cadastro de Planta</h2>
-
-  <form id="cadastroPlantaForm" class="cadastro-form" enctype="multipart/form-data">
-    <label for="nome">Nome da Planta:</label>
-    <input type="text" id="nome" name="nome" class="cadastro-input" required>
-
-    <label for="tipo">Tipo:</label>
-    <input type="text" id="tipo" name="tipo" class="cadastro-input" required>
-
-    <label for="cor">Cor:</label>
-    <input type="text" id="cor" name="cor" class="cadastro-input" required>
-
-    <label for="preco">Preço:</label>
-    <input type="number" id="preco" name="preco" step="0.01" class="cadastro-input" required>
-
-    <label for="detalhes">Detalhes:</label>
-    <textarea id="detalhes" name="detalhes" class="cadastro-input cadastro-textarea" rows="4" required></textarea>
-
-    <label for="foto">Foto da Planta:</label>
-    <input type="file" id="foto" name="foto" accept="image/*" class="cadastro-input" required>
-
-    <button type="button" onclick="cadastrarPlanta()" class="cadastro-button">Cadastrar Planta</button>
-  </form>
-
+  <div id="profileContainer">
+    <img id="profileImage" src="" alt="Imagem do Perfil">
+    <h2 id="profileName"></h2>
+    <p id="profileEmail"></p>
+</div>
 
 
   <div class="footer">
@@ -141,70 +118,34 @@
 
 
   <script>
+// mano que sono
 
-  // mano que sono
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        
-        document.getElementById('linkLogin').style.display = 'none';
-    } else {
-        
-        document.getElementById('linkLogin').style.display = 'block';
-    }
-});
-
-  // mano que sono² mais sono
-
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
 if (localStorage.getItem('isLoggedIn') === 'true') {
     
-    document.getElementById('user').style.display = 'block';''
+    document.getElementById('linkLogin').style.display = 'none';
 } else {
     
-    document.getElementById('user').style.display = 'none';
+    document.getElementById('linkLogin').style.display = 'block';
+}
+});
+
+// mano que sono² mais sono
+
+document.addEventListener('DOMContentLoaded', function() {
+
+if (localStorage.getItem('isLoggedIn') === 'true') {
+
+document.getElementById('user').style.display = 'block';''
+} else {
+
+document.getElementById('user').style.display = 'none';
 }
 });
 
 
-function cadastrarPlanta() {
-
-var nome = document.getElementById("nome").value;
-var tipo = document.getElementById("tipo").value;
-var cor = document.getElementById("cor").value;
-var preco = document.getElementById("preco").value;
-var detalhes = document.getElementById("detalhes").value;
-var foto = document.getElementById("foto").value;
-
-
-var planta = {
-  nome: nome,
-  tipo: tipo,
-  cor: cor,
-  preco: preco,
-  detalhes: detalhes,
-  foto: foto
-};
-
-
-var plantasCadastradas = JSON.parse(localStorage.getItem("plantas")) || [];
-
-
-plantasCadastradas.push(planta);
-
-
-localStorage.setItem("plantas", JSON.stringify(plantasCadastradas));
-
-
-document.getElementById("cadastroPlantaForm").reset();
-
-alert("Planta cadastrada com sucesso!");
-}
-
-  </script>
-
+</script>
 </body>
 
 </html>

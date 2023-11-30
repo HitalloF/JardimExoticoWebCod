@@ -1,0 +1,27 @@
+body {
+
+    text-align: center;
+
+}
+
+#profileContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    #profileContainer {
+        padding: 10px;
+    }
+}

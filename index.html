@@ -38,9 +38,12 @@
       </div>
     </header>
     <div class="group">
-    <a href="./cadastroPessoas.html"><img class="image1" src="img/perfil.png" alt="alt text" /></a><img class="icon2" src="img/shop.png"
+    <a  id='user' href="./perfil.html"><img class="perfil" src="img/perfil.png" alt="alt text" /></a> <a class="login" href="/loginecadastro.html" id="linkLogin">LOGIN<br/>CADASTRAR</a>
+    <div class="rect1"></div>
+    <img class="bolsa" src="img/shop.png"
       alt="alt text" />
   </div>
+
   </div>
 
 
@@ -68,8 +71,11 @@
     <a href="#">ALPÍNIAS</a>
     <a href="#">ANTÚRIOS</a>
     <a href="#">ASTROMÉLIAS</a>
-    <a href="#">PERFIL</a>
+
+    <a  id='user' href="/perfil.html">PERFIL</a>
+    <a  id="linkLogin" href="/loginecadastro.html">LOGIN</a>
     <a href="#">BOLSA</a>
+     </div>
   </div>
 
 
@@ -270,6 +276,35 @@
         x.className = "navbar";
       }
     }
+
+  // mano que sono
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        
+        document.getElementById('linkLogin').style.display = 'none';
+    } else {
+        
+        document.getElementById('linkLogin').style.display = 'block';
+    }
+});
+
+  // mano que sono² mais sono
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+if (localStorage.getItem('isLoggedIn') === 'true') {
+    
+    document.getElementById('user').style.display = 'block';''
+} else {
+    
+    document.getElementById('user').style.display = 'none';
+}
+});
+
+
+
   </script>
 
 </body>

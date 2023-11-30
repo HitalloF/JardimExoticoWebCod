@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
-  <link rel="stylesheet" href="/css/common.css" />
-  <link rel="stylesheet" href="/css/fonts.css" />
-  <link rel="stylesheet" href="/css/plantas.css" />
-  <link rel="stylesheet" href="/css/JardimExoticoHome.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/JardimExoticoHome.css" />
+  <link rel="stylesheet" href="css/cadastrostyle.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -26,25 +26,23 @@
 
   <div class="top">
     <div class="logo">
-      <a class="icon" href="/"><img class="icon" src="/img/Icone.png" alt="alt text" /></a><img class="image"
-        src="/img/jardimexotico.png" alt="alt text" />
+      <a class="icon" href="index.html"><img class="icon" src="img/Icone.png" alt="alt text" /></a><img class="image"
+        src="img/jardimexotico.png" alt="alt text" />
     </div>
     <header class="boxPesquisa">
       <div class="pesquisa-container">
         <form action="/naotemosbancodedados:D" method="GET">
           <input type="text" class="pesquisa-input" name="pesquisa-flores" placeholder="O QUE PROCURA?">
           <input type="text" class="pesquisa-input" name="pesquisa-loc" placeholder="PARA ONDE ENVIAR?">
-          <button type="submit" class="search-button"><img src="/img/seach.png" /></button>
+          <button type="submit" class="search-button"><img src="img/seach.png" /></button>
         </form>
       </div>
     </header>
     <div class="group">
-      <img class="image1" src="/img/perfil.png" alt="alt text" /><img class="icon2" src="/img/shop.png"
+      <img class="image1" src="img/perfil.png" alt="alt text" /><img class="icon2" src="img/shop.png"
         alt="alt text" />
     </div>
   </div>
-
-
 
 
   <div class="container">
@@ -52,7 +50,7 @@
       <div class="btnflex">
         <form action="/naotemosbancodedados:D" method="GET"></form>
         <input type="text" placeholder="Pesquisar...">
-        <button type="submit" class="search-button"><img src="/img/seach.png" /></button>
+        <button type="submit" class="search-button"><img src="img/seach.png" /></button>
       </form>
       </div>
     </div>
@@ -61,10 +59,10 @@
   <input type="checkbox" class="menu-checkbox" id="menuToggle">
   <div class="navbar">
     <label for="menuToggle" class="menu-icon">&#9776;</label>
-    <a href="./promocoes.html">PROMOÇÕES</a>
-    <a href="./vendidos.html">+VENDIDOS</a>
-    <a href="./cadastrar.html">CADASTRAR</a>
-    <a href="./plantas.html">LISTAR</a>
+    <a href="/promocoes.html">PROMOÇÕES</a>
+    <a href="/vendidos.html">+VENDIDOS</a>
+    <a href="/cadastrar.html">CADASTRAR</a>
+    <a href="/plantas.html">LISTAR</a>
     <a href="#">ORQUÍDEAS</a>
     <a href="#">BROMÉLIAS</a>
     <a href="#">HELICÔNIAS</a>
@@ -76,7 +74,7 @@
   </div>
 
 
-  
+
   <h2>Lista de Plantas Cadastradas</h2>
 
   <div id="listaPlantas" class="lista-plantas"></div>
@@ -86,7 +84,7 @@
     <div class="footCase">
       <div class="flex_col15">
         <div class="flex_col16">
-          <img class="icon" src="/img/Icone.png" alt="alt text" /><img
+          <img class="icon" src="./img/Icone.png" alt="alt text" /><img
             class="image"
             src="/img/jardimexotico.png"
             alt="alt text"
@@ -99,13 +97,13 @@
       <div class="rect7"></div>
       <div class="flex_col17">  
         <div class="flex_row11">
-          <img class="icon6" src="/img/zap.png" alt="alt text" /><img
+          <img class="icon6" src="./img/zap.png" alt="alt text" /><img
             class="icon6"
-            src="/img/tt.png"
+            src="./img/tt.png"
             alt="alt text"
-          /><img class="icon6" src="/img/face.png" alt="alt text" /><img
+          /><img class="icon6" src="./img/face.png" alt="alt text" /><img
             class="icon6"
-            src="/img/insta.png"
+            src="./img/insta.png"
             alt="alt text"
           />
         </div>
@@ -115,77 +113,78 @@
     </div>
   </div>
 </div>
- 
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+     
+      var plantasCadastradas = JSON.parse(localStorage.getItem("plantas")) || [];
+  
    
-    var plantasCadastradas = JSON.parse(localStorage.getItem("plantas")) || [];
-
- 
-    var listaPlantas = document.getElementById("listaPlantas");
-
-   
-    plantasCadastradas.forEach(function(planta, index) {
-        
-        var plantaContainer = document.createElement("div");
-        plantaContainer.classList.add("planta-container");
-
-        
-        var fotoElement = document.createElement("img");
-        fotoElement.src = planta.foto;
-        fotoElement.alt = "Foto da Planta";
-        fotoElement.classList.add("planta-foto");
-        plantaContainer.appendChild(fotoElement);
-
-        
-        var infoElement = document.createElement("div");
-        infoElement.classList.add("planta-info");
-
-        var nomeElement = document.createElement("p");
-        nomeElement.textContent = "Nome: " + planta.nome;
-        infoElement.appendChild(nomeElement);
-
-        var tipoCorElement = document.createElement("p");
-        tipoCorElement.textContent = "Tipo: " + planta.tipo + " | Cor: " + planta.cor;
-        infoElement.appendChild(tipoCorElement);
-
-        plantaContainer.appendChild(infoElement);
-
-        
-        var detalhesElement = document.createElement("div");
-        detalhesElement.classList.add("planta-detalhes");
-
-        var detalhesBox = document.createElement("div");
-        detalhesBox.classList.add("detalhes-box");
-        detalhesBox.textContent = "Detalhes: " + planta.detalhes;
-
-        detalhesElement.appendChild(detalhesBox);
-
-        
-        var lixeiraElement = document.createElement("div");
-        lixeiraElement.classList.add("lixeira");
-        lixeiraElement.innerHTML = "&#128465;"; 
-        lixeiraElement.addEventListener("click", function() {
-            
-            plantasCadastradas.splice(index, 1);
-
-           
-            localStorage.setItem("plantas", JSON.stringify(plantasCadastradas));
-
-            
-            exibirListaPlantas();
-        });
-
-        plantaContainer.appendChild(detalhesElement);
-        plantaContainer.appendChild(lixeiraElement);
-
-        
-        listaPlantas.appendChild(plantaContainer);
-    });
-});
-
-
-  </script>
+      var listaPlantas = document.getElementById("listaPlantas");
+  
+     
+      plantasCadastradas.forEach(function(planta, index) {
+          
+          var plantaContainer = document.createElement("div");
+          plantaContainer.classList.add("planta-container");
+  
+          
+          var fotoElement = document.createElement("img");
+          fotoElement.src = planta.foto;
+          fotoElement.alt = "Foto da Planta";
+          fotoElement.classList.add("planta-foto");
+          plantaContainer.appendChild(fotoElement);
+  
+          
+          var infoElement = document.createElement("div");
+          infoElement.classList.add("planta-info");
+  
+          var nomeElement = document.createElement("p");
+          nomeElement.textContent = "Nome: " + planta.nome;
+          infoElement.appendChild(nomeElement);
+  
+          var tipoCorElement = document.createElement("p");
+          tipoCorElement.textContent = "Tipo: " + planta.tipo + " | Cor: " + planta.cor;
+          infoElement.appendChild(tipoCorElement);
+  
+          plantaContainer.appendChild(infoElement);
+  
+          
+          var detalhesElement = document.createElement("div");
+          detalhesElement.classList.add("planta-detalhes");
+  
+          var detalhesBox = document.createElement("div");
+          detalhesBox.classList.add("detalhes-box");
+          detalhesBox.textContent = "Detalhes: " + planta.detalhes;
+  
+          detalhesElement.appendChild(detalhesBox);
+  
+          
+          var lixeiraElement = document.createElement("div");
+          lixeiraElement.classList.add("lixeira");
+          lixeiraElement.innerHTML = "&#128465;"; 
+          lixeiraElement.addEventListener("click", function() {
+              
+              plantasCadastradas.splice(index, 1);
+  
+             
+              localStorage.setItem("plantas", JSON.stringify(plantasCadastradas));
+  
+              
+              exibirListaPlantas();
+          });
+  
+          plantaContainer.appendChild(detalhesElement);
+          plantaContainer.appendChild(lixeiraElement);
+  
+          
+          listaPlantas.appendChild(plantaContainer);
+      });
+  });
+  
+  
+    </script>
+  
 
 </body>
 

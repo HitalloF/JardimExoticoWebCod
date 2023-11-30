@@ -164,9 +164,11 @@ background-color: grey;
   margin-right: 10px;
   height: 60px;
   width: 330px;
+  font-size: 30px;
 }
 
 .pesquisa-input::placeholder {
+  margin: auto;
   text-align: center;
   font-size: 30px;
   opacity: 50%;
@@ -750,11 +752,16 @@ background-color: grey;
 /* FOOTER */
 
 .footer {
+
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
   background-color: #d9d9d9;
   display: flex;
   flex-direction: column;
-  margin: 172px 0px 0px;
-  position: relative;
+  margin: 50px 0px 0px;
+
 }
 
 .footCase {

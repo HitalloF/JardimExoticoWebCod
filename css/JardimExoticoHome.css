@@ -82,6 +82,10 @@ body {
   text-decoration: none;
 }
 
+.navbar a:hover {
+background-color: grey;
+}
+
 .navbar a.icon {
   display: none;
 }
